@@ -22,7 +22,8 @@ app.get(`/`, (req, res) => {
 
 app.get(`/updatePlayerCsv`, (req, res) => {
     fs.readFile(`./homeroster.json`, 'utf-8', function(err,data) {
-        res.json(data)
+        jsonData = JSON.parse(data)
+        res.json(jsonData)
      })
 })
 // res.setHeader('Content-Type', 'text/html')
