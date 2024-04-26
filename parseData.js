@@ -1,3 +1,5 @@
+import * as fs from 'fs';
+
 const parseData = (data, team) => {
     const rowSplit = data.split('\n')
     const columnSplit = []
@@ -33,7 +35,15 @@ const createObjects = (objectReady, team) => {
                 grade
             }
     })
-    console.log(playerObjects)
+    saveJson(playerObjects, team)
+}
+
+
+const saveJson = (playerObjects, team) => {
+    fs.writeFile(`${team}roster.json`, JSON.stringify(playerObjects), function (err) {
+        if (err) throw err;
+        console.log("File Created");
+    });
 }
 
 export {parseData}

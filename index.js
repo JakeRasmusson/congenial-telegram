@@ -11,5 +11,17 @@ const readFiles = async (pathToFiles, team) => {
     }
 }
 
-readFiles('./csv/Elkhorn Area Football  Varsity Roster.csv', 'home')
-readFiles('./csv/Westosha Central High School Football  Varsity Roster.csv', 'away')
+const readJson = async (team) => {
+    try {
+        return await fs.readFileSync(`homeroster.json`, 'utf-8')
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+// readFiles('./csv/Elkhorn Area Football  Varsity Roster.csv', 'home')
+// readFiles('./csv/Westosha Central High School Football  Varsity Roster.csv', 'away')
+console.log(readJson('home'))
+
+
+export {readJson}
