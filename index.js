@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import { parseData } from "./parseData.js"
+const fs = require('fs')
+const {parseData} =  require("./parseData.js")
 
 
 const readFiles = async (pathToFiles, team) => {
@@ -19,9 +19,9 @@ const readJson = async (team) => {
     }
 }
 
-// readFiles('./csv/Elkhorn Area Football  Varsity Roster.csv', 'home')
-// readFiles('./csv/Westosha Central High School Football  Varsity Roster.csv', 'away')
-console.log(readJson('home'))
+readFiles('./csv/Elkhorn Area Football  Varsity Roster.csv', 'home')
+readFiles('./csv/Westosha Central High School Football  Varsity Roster.csv', 'away')
+// console.log(readJson('home'))
 
 
-export {readJson}
+module.exports = {readJson}

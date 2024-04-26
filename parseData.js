@@ -1,4 +1,4 @@
-import * as fs from 'fs';
+const fs = require('fs')
 
 const parseData = (data, team) => {
     const rowSplit = data.split('\n')
@@ -26,14 +26,15 @@ const prepareForObject = (players, team) => {
 }
 
 const createObjects = (objectReady, team) => {
-    const playerObjects = {}
+    const playerObjects = []
     objectReady.forEach(player => {
         const [ number, name, position, grade] = player
-        playerObjects[`${number} ${team}`] = {
+        playerObjects.push({
+            playername: `${number} ${team}`,
                 name,
                 position,
                 grade
-            }
+            })
     })
     saveJson(playerObjects, team)
 }
@@ -46,4 +47,4 @@ const saveJson = (playerObjects, team) => {
     });
 }
 
-export {parseData}
+module.exports = {parseData}
