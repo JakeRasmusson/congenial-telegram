@@ -12,7 +12,7 @@ app.set('view engine', 'ejs')
 //   res.setHeader('Content-Type', 'text/html');
 //   fs.createReadStream('index.html').pipe(res)
 // });
-app.listen(port, () => {
+app.listen(port, '127.1.1.1', () => {
     console.log(`Server listening on port ${port}`)
 })
 
